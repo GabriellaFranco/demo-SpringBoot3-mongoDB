@@ -1,5 +1,7 @@
 package com.enterprise.services;
 
+import java.util.Date;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +20,10 @@ public class PostService {
 	public Post findById(String id) {
 		Optional<Post> obj = PostRepository.findById(id);
 		return obj.orElseThrow(() -> new ObjectNotFoundException(id));
+	}
+	
+	public List<Post> findByTitle(String text) {
+		return PostRepository.findByTitle(text);
 	}
 	
 
